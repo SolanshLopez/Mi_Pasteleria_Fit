@@ -1,0 +1,179 @@
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(247, 104, 171);
+}
+body {
+    height: 100vh;
+    font-family:'Open Sans',sans-serif;
+
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-content: flex-start;
+}
+a {
+    color: #5b1a5b;
+    text-decoration: none;
+    margin: 10px 20px;  
+    font-size: 21px;
+}
+a:hover {
+    width: 100%;
+    color: #5b1a5b;
+    
+}
+li {
+    list-style-type: none;
+    align-items: stretch; 
+}
+li:hover {
+    background-color: #fff; 
+    border-bottom: rgb(147, 44, 157) solid 1px;
+}
+#product{
+    margin: 10px;
+}
+
+/* GRIDS */
+.explicitas {
+    display: grid;
+    grid-template-columns:1fr 3fr;/* columnas */
+    grid-template-rows: 1fr 2fr 1fr; /* filas*/
+}
+.repetitivas {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr) repeat(4, 2fr) 10%;
+    grid-template-rows: repeat(6, 2fr);
+}
+
+
+/* Nombrar las areas */
+header {
+    grid-area: cabeza;
+    background-color: #e5ee90;
+    text-align: center;
+    font-weight: bold;
+}
+#productos {
+    grid-area: productos;
+    background-color: #e5ee90;
+}
+#servicios {
+    grid-area: servicios;
+    background-color: #e5ee90;
+}
+nav {
+    grid-area: menu;
+    background-color: rgb(226, 142, 249);
+}
+aside {
+    grid-area: messirve;
+    background-color: rgb(247, 225, 128);
+}
+footer {
+    grid-area: pie;
+    background-color: rgb(169, 113, 169);
+}
+
+
+/* RESPONSIVE */
+
+/* MEDIA QUERIES */
+
+/* Smartphone */
+@media (max-width: 599px){
+    /* bloque de estilos */
+    body {
+        font-size: 0.75rem;
+    }
+    .grid-areas {
+        display: grid;
+        grid-template-areas: 
+        /* Armo la grilla por areas */
+        "cabeza"/* 1er fila */
+        "menu"
+        "productos"/* 2da fila */
+        "servicios"
+        "messirve"/* 3ra fila */
+        "pie"   /* 4ta fila */
+        ;
+        /* tamaño */
+        grid-template-columns: 100%;
+        grid-template-rows: 70px 1fr 2fr 2fr auto 50px;
+        /* espacios */
+        grid-row-gap: 2px;
+    }
+    aside {
+        display: none;
+    }
+}
+/* Tablet */
+@media (min-width: 600px) and (max-width: 1023px){
+    /* bloque de estilos para tablet */
+    body {
+        font-size: 1rem;
+    }
+    .grid-areas {
+        display: grid;
+        grid-template-areas: 
+        /* Armo la grilla por areas */
+        "cabeza cabeza menu "/* 1er fila */
+        "productos messirve menu"/* 2da fila */
+        "servicios messirve menu"/* 3ra fila */
+        "pie pie menu"   /* 4ta fila */
+        ;
+        /* tamaño */
+        grid-template-columns: 40% auto 20% ;
+        grid-template-rows: 100px 2fr 2fr 70px;
+        /* espacios */
+        grid-column-gap: 5px;
+        grid-row-gap: 5px;
+    }
+}
+
+/* DEsktop */
+@media (min-width: 1024px){
+    /* bloque de estilos para desktop*/
+    body {
+        font-size: 1.25rem;
+    }
+    .grid-areas {
+        display: grid;
+        grid-template-areas: 
+        /* Armo la grilla por areas */
+        "cabeza cabeza cabeza"/* 1er fila */
+        "menu menu menu"
+        "productos productos messirve"/* 2da fila */
+        "servicios servicios messirve"/* 3ra fila */
+        "pie pie pie"   /* 4ta fila */
+        ;
+        /* tamaño */
+        grid-template-columns: 15% auto 20% ;
+        grid-template-rows: 1fr 50px 2fr 2fr 70px;
+        /* espacios */
+        grid-column-gap: 10px;
+        grid-row-gap: 5px;
+    }
+    /* menu horizontal */
+    ul {
+        display: flex;
+        flex-direction: row;
+        text-align: center;
+        justify-content: center;
+        align-content: flex-start;
+    }
+    li {
+        list-style-type: none;
+        align-items: stretch; 
+    }
+    li:hover {
+        background-color: #fff; 
+        border-bottom: rgb(147, 44, 157) solid 1px;
+    }
+}
